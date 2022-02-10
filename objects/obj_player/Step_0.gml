@@ -49,3 +49,7 @@ if (array_length(bfb) == 0) {
     direction = other.bfb[2]
   }
 }
+
+x = minmax(0, x, room_width)
+y = minmax(0, y, room_height)
+
