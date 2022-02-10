@@ -20,3 +20,14 @@ if (inp.c)  image_angle += 4;
 
 // TODO Jump with z
 // TODO Rocket jump with z + space
+
+if (bfg_cooldown > 0) {
+  bfg_cooldown -= 1
+}
+
+if (inp.space && bfg_cooldown <= 0) {
+  with(instance_create_layer(x, y, layer, obj_bfb)) {
+	  direction = other.image_angle
+  }
+  bfg_cooldown = 100
+}
