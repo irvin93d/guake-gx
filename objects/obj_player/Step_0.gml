@@ -25,13 +25,27 @@ if (bfg_cooldown > 0) {
   bfg_cooldown -= 1
 }
 
-if (inp.space && bfg_cooldown <= 0) {
-  if (bfb) {
-    instance_destroy(bfb)
+if (inp.space && bfg_cooldown <= 0){
+  if (bfb_obj) {
+    instance_destroy(bfb_obj)
+    bfb_obj = pointer_null
   }
-	bfb = instance_create_layer(x, y, layer, obj_bfb)
-	with(bfb) {
-		direction = other.image_angle
-    }
+  bfb = [x, y, image_angle]
 	bfg_cooldown = 100
+}
+
+if (array_length(bfb) == 0) {
+  if (bfb_obj) {
+    instance_destroy(bfb_obj)
+    bfb_obj = pointer_null
+  }
+} else {
+  if (!bfb_obj) {
+    bfb_obj = instance_create_layer(bfb[0], bfb[1], layer, obj_bfb)
+  }
+  with (bfb_obj) {
+    other.bfb[0] = x
+    other.bfb[1] = y
+    direction = other.bfb[2]
+  }
 }
