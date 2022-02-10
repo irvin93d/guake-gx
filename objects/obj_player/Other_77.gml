@@ -5,3 +5,4 @@ rollback_save(hspeed);
 rollback_save(vspeed);
 rollback_save(bfg_cooldown);
 rollback_save(bfb)
+rollback_save(hp)

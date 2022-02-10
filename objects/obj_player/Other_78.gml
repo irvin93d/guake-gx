@@ -5,3 +5,4 @@ hspeed = rollback_load();
 vspeed = rollback_load();
 bfg_cooldown = rollback_load();
 bfb = rollback_load();
+hp= rollback_load()
