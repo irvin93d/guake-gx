@@ -26,8 +26,12 @@ if (bfg_cooldown > 0) {
 }
 
 if (inp.space && bfg_cooldown <= 0) {
-  with(instance_create_layer(x, y, layer, obj_bfb)) {
-	  direction = other.image_angle
+  if (bfb) {
+    instance_destroy(bfb)
   }
-  bfg_cooldown = 100
+	bfb = instance_create_layer(x, y, layer, obj_bfb)
+	with(bfb) {
+		direction = other.image_angle
+    }
+	bfg_cooldown = 100
 }
